@@ -10,8 +10,42 @@ Welcome to the Deep Learning Hackathon project! This repository contains all the
 - [How to Contribute](#how-to-contribute)
 - [License](#license)
 
-## Introduction
-This project is designed to help participants explore and build deep learning models. Whether you're a beginner or an expert, this hackathon is a great opportunity to learn, collaborate, and innovate.
+# 🚀 Introduction
+
+**VessenNet** is a deep learning–powered system for the **automated segmentation and analysis of scleral (tear-zone) vein patterns** from high-resolution eye images. It is designed as a two-stage, custom architecture that combines the strengths of U-Net and SegNet into a novel framework called **VesselNet**.
+
+## 🧠 What is VesselNet?
+
+**VesselNet** is our custom hybrid model composed of:
+
+- **U-Net**: First stage used to **crop and isolate the scleral region** from the eye image with precise anatomical localization.
+- **SegNet**: Second stage used to **segment the tear vein structures** specifically within the extracted scleral area.
+
+This modular design improves both anatomical accuracy and vascular continuity, making it ideal for segmenting fine, thin, and branching vein structures.
+
+---
+
+## 🔑 Key Features
+
+- CLAHE-based preprocessing to enhance visibility of vascular structures  
+- Two-stage architecture for accurate region selection and segmentation  
+- Extraction of biologically relevant features: vein density, tortuosity, branching, vessel width, and more  
+- Optional health condition mapping (e.g., dehydration, fatigue) using clustering or rule-based heuristics  
+- **FastAPI backend** for real-time inference  
+- **Flutter app integration** for capturing eye images and displaying segmentation results directly on mobile  
+
+---
+
+## 💡 Use Cases
+
+- Non-invasive wellness screening using ocular biomarkers  
+- Real-time vascular analysis from mobile devices  
+- Research on scleral vein behavior under stress, fatigue, or hydration changes  
+
+---
+
+**VessenNet** was developed during a hackathon to demonstrate the potential of deep learning and mobile-integrated health analysis from eye-based biometrics.
+.
 
 ## Getting Started
 1. Clone this repository:

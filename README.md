@@ -33,7 +33,7 @@ Our hybrid architecture ensures both anatomical accuracy and vascular continuity
    Input eye images are enhanced using CLAHE (Contrast Limited Adaptive Histogram Equalization) to improve visibility of fine vascular structures.
 2. **Stage 1 – Scleral Region Isolation (Attention U-Net)**:  
    A U-Net model isolates and crops the scleral region, removing noise from eyelids and iris.
-3. **Stage 2 – Vein Segmentation (SegNet + MedNCA)**:  
+3. **Stage 2 – Vein Segmentation using MedSegNetNCA (SegNet + MedNCA)**:  
    The isolated scleral ROI is processed through a hybrid SegNet + MedNCA pipeline, where SegNet provides robust structural segmentation while MedNCA (Medical Neural Cellular Automata) refines fine-grained vascular details through iterative, self-organizing updates. This combination enables precise delineation of the thin, intricate, and branching scleral veins, preserving anatomical continuity even in challenging imaging conditions.
 4. **Post-processing & Feature Extraction**:  
    - **Vein Density** – vessel area relative to scleral area  
@@ -46,7 +46,7 @@ This modular design outperforms single-stage models by decoupling localization f
 ---
 
 ## Key Features
-- **High-Precision Two-Stage Architecture** – U-Net + SegNet for robust segmentation
+- **High-Precision Two-Stage Architecture** – Attention U-Net + MedSegNetNCA for robust segmentation
 - **Advanced Preprocessing** – CLAHE for performance in varied lighting
 - **Rich Biomarker Extraction** – density, tortuosity, branching, width
 - **Scalable Backend** – FastAPI-powered inference

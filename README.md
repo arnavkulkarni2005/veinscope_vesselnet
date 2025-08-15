@@ -1,86 +1,13 @@
-# Deep Learning Hackathon
-
-Welcome to the Deep Learning Hackathon project! This repository contains all the resources, code, and documentation needed to participate in the hackathon.
-
-## Table of Contents
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Requirements](#requirements)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-
-# 🚀 Introduction
-
-**VessenNet** is a deep learning–powered system for the **automated segmentation and analysis of scleral (tear-zone) vein patterns** from high-resolution eye images. It is designed as a two-stage, custom architecture that combines the strengths of U-Net and SegNet into a novel framework called **VesselNet**.
-
-## 🧠 What is VesselNet?
-
-**VesselNet** is our custom hybrid model composed of:
-
-- **U-Net**: First stage used to **crop and isolate the scleral region** from the eye image with precise anatomical localization.
-- **SegNet**: Second stage used to **segment the tear vein structures** specifically within the extracted scleral area.
-
-This modular design improves both anatomical accuracy and vascular continuity, making it ideal for segmenting fine, thin, and branching vein structures.
-
----
-
-## 🔑 Key Features
-
-- CLAHE-based preprocessing to enhance visibility of vascular structures  
-- Two-stage architecture for accurate region selection and segmentation  
-- Extraction of biologically relevant features: vein density, tortuosity, branching, vessel width, and more  
-- Optional health condition mapping (e.g., dehydration, fatigue) using clustering or rule-based heuristics  
-- **FastAPI backend** for real-time inference  
-- **Flutter app integration** for capturing eye images and displaying segmentation results directly on mobile  
-
----
-
-## 💡 Use Cases
-
-- Non-invasive wellness screening using ocular biomarkers  
-- Real-time vascular analysis from mobile devices  
-- Research on scleral vein behavior under stress, fatigue, or hydration changes  
-
----
-
-**VessenNet** was developed during a hackathon to demonstrate the potential of deep learning and mobile-integrated health analysis from eye-based biometrics.
-.
-
-## Getting Started
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/your-username/DL_Hack.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd DL_Hack
-    ```
-3. Follow the instructions in the `requirements` section to set up your environment.
-
-## Project Structure
-```
-/home/teaching/DL_Hack/
-├── data/           # Dataset files
-├── models/         # Pre-trained and custom models
-├── notebooks/      # Jupyter notebooks for experiments
-├── scripts/        # Utility scripts
-└── README.md       # Project documentation
-```
-
-## Requirements
-- Python 3.8 or higher
-- Required libraries are listed in `requirements.txt`. Install them using:
-  ```bash
-  pip install -r requirements.txt
-  ```
-
-<!-- ## How to Contribute
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a clear description of your changes. -->
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-<!-- Happy hacking! -->
+VesselNet: A Deep Learning Vision for Proactive Eye HealthWelcome to the VesselNet project repository. This document outlines the architecture, features, and future vision of VesselNet, a novel system for non-invasive ocular health monitoring.Table of ContentsVision & MissionThe VesselNet ArchitectureKey FeaturesPotential ApplicationsFrom Hackathon to Health-Tech: Our RoadmapGetting StartedProject StructureRequirementsHow to ContributeLicenseVision & MissionIn an era of unprecedented digital screen time, eye strain and related health conditions are on the rise. Our mission is to empower individuals and clinicians with a proactive, non-invasive tool for monitoring ocular biomarkers. We envision VesselNet becoming a daily habit for the digitally-strained generation, transforming the smartphone camera into a powerful device for promoting long-term eye health and wellness.The VesselNet ArchitectureVesselNet is a custom, two-stage deep learning pipeline designed for the precise segmentation and analysis of scleral (tear-zone) vein patterns from high-resolution eye images. Our hybrid architecture ensures both anatomical accuracy and vascular continuity, which is critical for extracting meaningful biomarkers.This initial prototype was developed in an intense 36-hour hackathon, demonstrating our capability for rapid, high-impact development.The pipeline operates as follows:Preprocessing: An input eye image is enhanced using Contrast Limited Adaptive Histogram Equalization (CLAHE) to improve the visibility of fine vascular structures against the scleral background.Stage 1: Scleral Region Isolation (U-Net)A U-Net model, renowned for its precision in biomedical imaging, first identifies and crops the scleral region. This step eliminates noise from surrounding features (eyelids, iris) and provides a clean, anatomically correct Region of Interest (ROI).Stage 2: Vein Segmentation (SegNet)The isolated scleral ROI is fed into a SegNet model. SegNet's encoder-decoder architecture is particularly effective at preserving high-frequency details, making it ideal for segmenting the thin, intricate, and branching patterns of scleral veins.Post-processing & Feature Extraction:From the segmented vascular mask, we extract a rich set of biologically relevant features, including:Vein Density: Total vessel area relative to the scleral area.Tortuosity: A measure of how twisted or curved the veins are, often denoted as fracL_actualL_straight.Branching Analysis: Number of junctions and endpoints.Average Vessel Width: The mean thickness of the segmented veins.This modular, two-stage design significantly outperforms single-stage models by decoupling the tasks of localization and fine-grained segmentation.Key FeaturesHigh-Precision Two-Stage Architecture: Combines U-Net and SegNet for robust and accurate vascular segmentation.Advanced Preprocessing: Utilizes CLAHE to ensure model performance across various lighting conditions and image qualities.Rich Biomarker Extraction: Quantifies key vascular metrics like density, tortuosity, branching patterns, and width.Scalable Backend for Real-Time Analysis: A FastAPI backend provides a robust, high-performance API for on-demand inference.Seamless Mobile Integration: A Flutter application demonstrates a complete user flow—from image capture to displaying segmentation results and health insights on a mobile device.Potential ApplicationsVesselNet is designed to serve both individual users and medical professionals.For Personal WellnessDaily Health Tracking: Users can track changes in their scleral veins as potential indicators of fatigue, dehydration, or eye strain.Habit Formation: Encourages a daily check-in to build awareness and promote healthier screen-time habits.Non-invasive Wellness Screening: Provides accessible, at-home insights without the need for specialized hardware.For Clinical & Research UseClinician's Assistant: Offers doctors a quantitative, objective tool to supplement traditional examinations.Longitudinal Studies: Enables researchers to collect data on how scleral vascular patterns change in response to stress, medication, or specific health conditions.Telemedicine: Facilitates remote patient monitoring and preliminary diagnostics.From Hackathon to Health-Tech: Our RoadmapThis project was conceived and built within a 36-hour hackathon, serving as a powerful proof-of-concept. Our ambition is to evolve this prototype into a fully deployed, commercial-grade platform. We are actively seeking to extend this work and welcome collaboration.Phase 1: Refinement & Validation (Current Focus) Expand Dataset: Augment our training data with a more diverse set of images to improve model generalization. Model Optimization: Experiment with attention mechanisms and lighter backbones for improved accuracy and on-device performance. Longitudinal Analysis: Develop algorithms to track vascular changes in the same individual over time. UX/UI Enhancement: Refine the Flutter app for a more intuitive and engaging user experience.Phase 2: Deployment & Integration Cloud Deployment: Migrate the backend to a scalable cloud infrastructure (e.g., GCP, AWS) for public use. Publish Research: Document our unique architecture and findings in a scientific paper. API for Developers: Release a public API to allow other health and wellness apps to integrate VesselNet's capabilities.Phase 3: Commercialization & Clinical Trials Clinical Validation: Partner with ophthalmologists and research institutions to validate our extracted biomarkers against established medical standards. Regulatory Compliance: Pursue compliance with health data regulations (e.g., HIPAA) to enable clinical adoption. Feature Expansion: Integrate machine learning models to correlate vascular patterns with specific conditions like hypertension or diabetes, based on clinical data.This roadmap reflects a commitment to building a product that is not only technologically innovative but also scientifically rigorous and user-centric—a philosophy I am keen to bring to a forward-thinking company like Adobe.Getting StartedClone this repository:git clone https://github.com/your-username/DL_Hack.git
+Navigate to the project directory:cd DL_Hack
+Follow the instructions in the Requirements section to set up your environment.Project Structure/home/teaching/DL_Hack/
+├── data/              # Curated datasets for training and validation
+├── models/            # Pre-trained model weights (U-Net, SegNet)
+├── notebooks/         # Jupyter notebooks for experimentation, EDA, and model training
+├── app/               # Source code for the FastAPI backend and Flutter client
+│   ├── backend/
+│   └── flutter_app/
+├── scripts/           # Utility scripts for data processing and feature extraction
+└── README.md          # Project documentation
+RequirementsPython 3.8+PyTorch, OpenCV, Scikit-image, FastAPIFor a complete list, see requirements.txt. Install using:pip install -r requirements.txt
+How to ContributeWe are passionate about pushing the boundaries of accessible health tech. If you are interested in collaborating, please:Fork the repository.Create a new branch for your feature or bug fix (git checkout -b feature/your-feature-name).Commit your changes and submit a pull request with a clear description of your work.LicenseThis project is licensed under the MIT License. See the LICENSE file for details.
